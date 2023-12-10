@@ -6,15 +6,15 @@
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 21:00:40 by joaoribe          #+#    #+#             */
-/*   Updated: 2023/10/18 03:01:35 by joaoribe         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:50:37 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	long long int	res;
+	int			i;
+	int			sign;
+	long long	res;
 
 	i = 0;
 	sign = 1;

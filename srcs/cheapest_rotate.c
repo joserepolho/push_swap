@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_free.c                                       :+:      :+:    :+:   */
+/*   cheapest_rotate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 01:38:13 by joaoribe          #+#    #+#             */
-/*   Updated: 2023/12/07 22:00:35 by joaoribe         ###   ########.fr       */
+/*   Created: 2023/12/10 01:47:53 by joaoribe          #+#    #+#             */
+/*   Updated: 2023/12/10 22:07:23 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	stack_free(t_stack **stck)
+int	cheapest_double_rotate(t_stack *a, t_stack *b, char c)
 {
+	int		i;
 	t_stack	*tmp;
 
-	if (!stck)
-		return ;
-	while (*stck)
+	if (c == 'a')
+		tmp = a;
+	else if (c == 'b')
+		tmp = b;
+	i = rrarrbs(a, b, b->n, c);
+	while (tmp)
 	{
-		tmp = (*stck)->next;
-		free(*stck);
-		*stck = tmp;
+		if (i > rarbs(a, b, tmp->n, c))
+			i = rarbs(a, b, tmp->n, c);
+		if (i > rrarrbs(a, b, tmp->n, c))
+			i = rrarrbs(a, b, tmp->n, c);
+		if (i > rarrbs(a, b, b->n, c))
+			i = rarrbs(a, b, b->n, c);
+		if (i > rrarbs(a, b, b->n, c))
+			i = rrarbs(a, b, b->n, c);
+		tmp = tmp->next;
 	}
+	return (i);
 }

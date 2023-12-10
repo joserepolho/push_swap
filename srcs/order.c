@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_double.c                                      :+:      :+:    :+:   */
+/*   order.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 04:33:29 by joaoribe          #+#    #+#             */
-/*   Updated: 2023/12/10 02:04:34 by joaoribe         ###   ########.fr       */
+/*   Created: 2023/12/09 20:50:07 by joaoribe          #+#    #+#             */
+/*   Updated: 2023/12/10 21:47:37 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	free_double(char **s)
+void	order(t_stack **s)
 {
-	char	*tmp;
-
-	if (!s)
-		return ;
-	while (*s)
+	if (ft_tlstsize(*s) / 2 > get_index(*s, ft_min(*s)))
 	{
-		tmp = *s;
-		free(tmp);
-		s++;
+		while (get_index(*s, ft_min(*s)))
+			ra(s);
 	}
-	free(s);
+	else
+	{
+		while (get_index(*s, ft_min(*s)))
+			rra(s);
+	}
 }

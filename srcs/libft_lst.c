@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_double.c                                      :+:      :+:    :+:   */
+/*   libft_lst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 04:33:29 by joaoribe          #+#    #+#             */
-/*   Updated: 2023/12/10 02:04:34 by joaoribe         ###   ########.fr       */
+/*   Created: 2023/12/10 21:41:36 by joaoribe          #+#    #+#             */
+/*   Updated: 2023/12/10 21:46:03 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	free_double(char **s)
+t_stack	*ft_tlstlast(t_stack *lst)
 {
-	char	*tmp;
+	if (!lst)
+		return (0);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
 
-	if (!s)
-		return ;
-	while (*s)
+int	ft_tlstsize(t_stack *lst)
+{
+	size_t	i;
+
+	i = 0;
+	while (lst)
 	{
-		tmp = *s;
-		free(tmp);
-		s++;
+		lst = lst->next;
+		i++;
 	}
-	free(s);
+	return (i);
 }

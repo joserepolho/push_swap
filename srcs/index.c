@@ -1,28 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_double.c                                      :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 04:33:29 by joaoribe          #+#    #+#             */
-/*   Updated: 2023/12/10 02:04:34 by joaoribe         ###   ########.fr       */
+/*   Created: 2023/12/08 21:16:03 by joaoribe          #+#    #+#             */
+/*   Updated: 2023/12/10 21:47:47 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	free_double(char **s)
+int	get_index(t_stack *s, int n)
 {
-	char	*tmp;
+	int	i;
 
-	if (!s)
-		return ;
-	while (*s)
+	i = 0;
+	while (s->n != n)
 	{
-		tmp = *s;
-		free(tmp);
-		s++;
+		s = s->next;
+		i++;
 	}
-	free(s);
+	return (i);
+}
+
+int	push_index(t_stack *s, int n)
+{
+	int		i;
+
+	if (n > s->n && n < ft_tlstlast(s)->n)
+		i = 0;
+	else if (n > ft_max(s) || n < ft_min(s))
+		i = get_index(s, ft_max(s));
+	else
+	{
+		i = 1;
+		while (n < s->n)
+		{
+			s = s->next;
+			i++;
+		}
+	}
+	return (i);
 }

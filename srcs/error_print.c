@@ -6,14 +6,14 @@
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 01:04:43 by joaoribe          #+#    #+#             */
-/*   Updated: 2023/11/11 01:20:01 by joaoribe         ###   ########.fr       */
+/*   Updated: 2023/12/09 17:21:26 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
-void    error_print(void)
+void	error_print(void)
 {
-    write(2, "Error\n", 6);
-    exit(1);
+	write(2, "Error\n", 6);
+	exit(1);
 }

@@ -1,61 +1,73 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swaps_pushes.c                                     :+:      :+:    :+:   */
+/*   sames.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 00:08:15 by joaoribe          #+#    #+#             */
-/*   Updated: 2023/12/09 17:44:13 by joaoribe         ###   ########.fr       */
+/*   Created: 2023/12/07 22:10:02 by joaoribe          #+#    #+#             */
+/*   Updated: 2023/12/10 21:46:45 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	sa(t_stack **a)
+void	ss(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (!a || !(*a) || !((*a)->next))
+	if (!a || !b || !(*a) || !(*b) || !((*a)->next) || !((*b)->next))
 		return ;
 	tmp = *a;
 	*a = (*a)->next;
 	tmp->next = (*a)->next;
 	(*a)->next = tmp;
-}
-
-void	sb(t_stack **b)
-{
-	t_stack	*tmp;
-
-	if (!b || !(*b) || !((*b)->next))
-		return ;
 	tmp = *b;
 	*b = (*b)->next;
 	tmp->next = (*b)->next;
 	(*b)->next = tmp;
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (!b || !*b)
+	if (!a || !b || !(*a) || !(*b) || !(*a)->next || !((*b)->next))
 		return ;
 	tmp = *a;
-	*a = *b;
+	*a = (*a)->next;
+	while ((*a)->next)
+		*a = (*a)->next;
 	(*a)->next = tmp;
+	tmp->next = 0;
+	tmp = *b;
 	*b = (*b)->next;
+	while ((*b)->next)
+		*b = (*b)->next;
+	(*b)->next = tmp;
+	tmp->next = 0;
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
+	int		i;
 
-	if (!a || !*a)
+	if (!a || !b || !(*a) || !(*b) || !(*a)->next || !((*b)->next))
 		return ;
+	i = 0;
+	tmp = *a;
+	*a = ft_tlstlast(*a);
+	i = ft_tlstsize(*a);
+	(*a)->next = tmp;
+	while (i-- > 1)
+		tmp = tmp->next;
+	tmp->next = 0;
 	tmp = *b;
-	*b = *a;
+	*b = ft_tlstlast(*b);
+	i = ft_tlstsize(*b);
 	(*b)->next = tmp;
-	*a = (*a)->next;
+	while (i-- > 1)
+		tmp = tmp->next;
+	tmp->next = 0;
 }
