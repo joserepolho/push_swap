@@ -6,7 +6,7 @@
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 04:37:04 by joaoribe          #+#    #+#             */
-/*   Updated: 2023/12/22 14:58:19 by joaoribe         ###   ########.fr       */
+/*   Updated: 2023/12/23 14:47:13 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	check_digits(t_stack **a, char *s, char **spl, int j)
 	int	i;
 
 	i = 0;
-	if (s[0] == '-' || s[0] == '+')
+	if ((s[0] == '-' || s[0] == '+') && s[1])
 		i++;
 	while (s[i])
 	{
