@@ -6,7 +6,7 @@
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 14:38:42 by yogun             #+#    #+#             */
-/*   Updated: 2023/12/23 09:50:42 by joaoribe         ###   ########.fr       */
+/*   Updated: 2023/12/26 05:27:07 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,14 @@ void	ft_sort(t_stack **a)
 	stack_b = 0;
 	if (ft_lstsize(*a) == 2)
 		ft_sa(a, 0);
+	else if (ft_lstsize(*a) == 3)
+		ft_sort_three(a);
 	else
 	{
-		if (ft_lstsize(*a) == 3)
-			ft_sort_three(a);
+		if (check_circle_order_asc(*a) == ft_lstsize(*a))
+			ft_order(a);
 		else
 		{
-			if (check_circle_order_asc(*a) == ft_lstsize(*a))
-				ft_order(a);
 			ft_pb(a, &stack_b, 0);
 			if (ft_lstsize(*a) > 3 && !ft_checksorted(*a))
 				ft_pb(a, &stack_b, 0);
@@ -106,6 +106,6 @@ void	ft_sort(t_stack **a)
 				ft_sort_three(a);
 			ft_sort_a(a, &stack_b);
 		}
-		ft_order(a);
 	}
+	ft_order(a);
 }
