@@ -6,7 +6,7 @@
 /*   By: joaoribe <joaoribe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 09:54:08 by yogun             #+#    #+#             */
-/*   Updated: 2023/12/21 07:15:31 by joaoribe         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:29:40 by joaoribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_checksorted(t_stack *stack_a)
 
 int	check_circle_order_asc(t_stack *stck)
 {
-	int	j;
+	int		j;
 
 	j = 0;
 	if (stck < stck->next)
@@ -39,6 +39,8 @@ int	check_circle_order_asc(t_stack *stck)
 			stck = stck->next;
 			j++;
 		}
+		if (stck->nbr < ft_lstlast(stck)->nbr)
+			return (0);
 		stck = stck->next;
 		j++;
 		while (stck && stck->next && stck->nbr < stck->next->nbr)
